@@ -11,10 +11,6 @@ services:
     wordpress-service:
         ports:
             - '80:80'
-        build: . 
+        image: nischal9860/word_press_image:latest 
         container_name: wordpress_app_container
-        environment:
-            - DB_NAME=wordpressdb
-            - DB_USER=wordpress_user
-            - DB_PASSWORD=Wordpress@123
-            - DB_HOST=wordpress_db_container
+        
