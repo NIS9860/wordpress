@@ -1,0 +1,20 @@
+version: '3'
+services:
+    mysql-service:
+        environment:
+            - MYSQL_ROOT_PASSWORD=Devops@123
+            - MYSQL_DATABASE=wordpressdb
+            - MYSQL_USER=wordpress_user
+            - MYSQL_PASSWORD=Wordpress@123
+        container_name: wordpress_db_container
+        image: mysql:8.0.32
+    wordpress-service:
+        ports:
+            - '80:80'
+        build: . 
+        container_name: wordpress_app_container
+        environment:
+            - DB_NAME=wordpressdb
+            - DB_USER=wordpress_user
+            - DB_PASSWORD=Wordpress@123
+            - DB_HOST=wordpress_db_container
